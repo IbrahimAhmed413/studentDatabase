@@ -1,0 +1,39 @@
+﻿@page
+@model studentDatabase.Pages.studentsModel
+@{ }
+<h1> Students Details:</h1>
+
+
+<table class="table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var std in Model.Allstudents)
+        {
+<tr>
+    <td>
+        @std.Id
+    </td>
+    <td>
+        @std.Name
+    </td>
+    <td>
+        @std.Age
+    </td>
+</tr>}
+    </tbody>
+</table>
+
+
+<form asp-page-handler="Addstudent">
+    <label for="Name">Name:</label>
+    <input asp-for=Newstudent.Name name="Name" />
+    <label for="Age">Age:</label>
+    <input asp-for=Newstudent.Age name="Age" />
+    <button type="submit">Add Student</button>
+</form>
